@@ -10,6 +10,20 @@ public class ASimplePlaywrightTest {
 
     @Test
     void shouldShowThePageTitle() {
-        // TODO: Write your first playwright test here
+
+        Playwright playwright = Playwright.create();
+        Browser browser = playwright.chromium().launch();
+        Page page = browser.newPage();
+
+        page.navigate("https://practicesoftwaretesting.com");
+        String title = page.title();
+
+        Assertions.assertTrue(title.contains("Practice Software Testing"));
+
+        browser.close();
+        playwright.close();
+
     }
+
+
 }
