@@ -79,8 +79,8 @@ public class PlaywrightLocatorsTest {
         @DisplayName("By attribute")
         @Test
         void locateTheSendButtonByAttribute() {
-            page.locator("input[placeholder='Your last name *']").fill("Smith");
-            assertThat(page.locator("#last_name")).hasValue("Smith");
+            page.locator("[placeholder='Your last name *']").fill("Bobby");
+            PlaywrightAssertions.assertThat(page.locator("#last_name")).hasValue("Bobby");
         }
     }
 
