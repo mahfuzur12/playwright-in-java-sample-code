@@ -113,7 +113,7 @@ public class PlaywrightAssertionsTest {
             List<Double> prices = page.getByTestId("product-price")
                     .allInnerTexts()
                     .stream()
-                    .map(price -> Double.parseDouble(price.replace("$","")))
+                    .map(price -> Double.parseDouble(price.replace("$", "")))
                     .toList();
 
             Assertions.assertThat(prices)
@@ -124,7 +124,8 @@ public class PlaywrightAssertionsTest {
                     .allSatisfy(price ->
                             Assertions.assertThat(price)
                                     .isGreaterThan(0.0)
-                                    .isLessThan(1000.0));
+                                    .isLessThan(1000));
+
         }
 
 
@@ -132,7 +133,6 @@ public class PlaywrightAssertionsTest {
         void shouldSortInAlphabeticalOrder() {
             page.getByLabel("Sort").selectOption("Name (A - Z)");
             page.waitForLoadState(LoadState.NETWORKIDLE);
-            page.waitForTimeout(500);
 
             List<String> productNames = page.getByTestId("product-name").allTextContents();
 
