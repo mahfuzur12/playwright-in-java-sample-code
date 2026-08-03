@@ -63,18 +63,17 @@ public class PlaywrightLocatorsTest {
         @DisplayName("By id")
         @Test
         void locateTheFirstNameFieldByID() {
-            page.locator("#first_name").fill("Sarah-Jane");
-            assertThat(page.locator("#first_name")).hasValue("Sarah-Jane");
+            page.locator("#first_name").fill("Bob");
+            PlaywrightAssertions.assertThat(page.locator("#first_name")).hasValue("Bob");
         }
 
         @DisplayName("By CSS class")
         @Test
         void locateTheSendButtonByCssClass() {
-            page.locator("#first_name").fill("Sarah-Jane");
+            page.locator("#first_name").fill("Bob");
             page.locator(".btnSubmit").click();
             List<String> alertMessages = page.locator(".alert").allTextContents();
-            Assertions.assertTrue(!alertMessages.isEmpty());
-
+            Assertions.assertFalse(alertMessages.isEmpty());
         }
 
         @DisplayName("By attribute")
