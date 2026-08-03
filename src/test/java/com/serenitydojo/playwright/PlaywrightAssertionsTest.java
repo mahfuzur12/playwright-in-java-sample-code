@@ -65,13 +65,13 @@ public class PlaywrightAssertionsTest {
         void fieldValues() {
             var firstNameField = page.getByLabel("First name");
 
-            firstNameField.fill("Sarah-Jane");
+            firstNameField.fill("Bob");
 
-            assertThat(firstNameField).hasValue("Sarah-Jane");
-
+            assertThat(firstNameField).hasValue("Bob");
             assertThat(firstNameField).not().isDisabled();
             assertThat(firstNameField).isVisible();
             assertThat(firstNameField).isEditable();
+
         }
 
         @DisplayName("Checking the value of a text field")
